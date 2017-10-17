@@ -56,11 +56,11 @@ bool stack_pop(stack *s, item *out)
 
     // get first node and its item
     node *old_head = s->head;
-    s->head = old_head;
-    item it = old_head->data;
+    s->head = old_head->next;
+    *out = old_head->data;
 
     free(old_head);
-    return it;
+    return true;
 }
 
 // recursively frees a link list
