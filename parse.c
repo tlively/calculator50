@@ -43,18 +43,17 @@ token parser_parse(parser *p, int *out)
             break;
         }
 
-        // is this a character we recognize?
-        bool is_valid = false;
+        // is this an operator or number?
+        bool is_op = false;
         switch (p->str[p->idx])
         {
-        case '+':
-        case '-':
-        case '/':
-        case '*':
-            is_valid = true;
+            case '+':
+            case '-':
+            case '/':
+            case '*':
+                is_op = true;
         }
-        is_valid = is_valid || isdigit(p->str[p->idx]);
-        if (is_valid)
+        if (is_op || isdigit(p->str[p->idx]))
         {
             break;
         }
@@ -70,20 +69,20 @@ token parser_parse(parser *p, int *out)
     }
 
     // check for op
-    switch(p->str[p->idx])
+    switch (p->str[p->idx])
     {
-    case '+':
-        p->idx++;
-        return OP_ADD;
-    case '-':
-        p->idx++;
-        return OP_SUB;
-    case '/':
-        p->idx++;
-        return OP_DIV;
-    case '*':
-        p->idx++;
-        return OP_MUL;
+        case '+':
+            p->idx++;
+            return OP_ADD;
+        case '-':
+            p->idx++;
+            return OP_SUB;
+        case '/':
+            p->idx++;
+            return OP_DIV;
+        case '*':
+            p->idx++;
+            return OP_MUL;
     }
 
     // start of number

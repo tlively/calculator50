@@ -51,22 +51,22 @@ int main(void)
         }
 
         // push the correct result onto the stack
-        switch(tok)
+        switch (tok)
         {
-        case OP_ADD:
-            stack_push(s, a + b);
-            break;
-        case OP_SUB:
-            stack_push(s, a - b);
-            break;
-        case OP_MUL:
-            stack_push(s, a * b);
-            break;
-        case OP_DIV:
-            stack_push(s, a / b);
-            break;
-        default:
-            assert(false && "Illegal operand");
+            case OP_ADD:
+                stack_push(s, a + b);
+                break;
+            case OP_SUB:
+                stack_push(s, a - b);
+                break;
+            case OP_MUL:
+                stack_push(s, a * b);
+                break;
+            case OP_DIV:
+                stack_push(s, a / b);
+                break;
+            default:
+                assert(false && "Illegal operator");
         }
     }
 

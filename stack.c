@@ -3,6 +3,7 @@
 
 #include "stack.h"
 
+// a linked list node
 typedef struct node
 {
     item data;
