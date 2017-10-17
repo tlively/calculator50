@@ -12,7 +12,7 @@ HDRS = parse.h stack.h
 
 # space-separated list of libraries, if any,
 # each of which should be prefixed with -l
-LIBS =
+LIBS = -lcs50
 
 # space-separated list of source files
 SRCS = calculator.c stack.c parse.c
